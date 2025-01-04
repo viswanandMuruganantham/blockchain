@@ -5,8 +5,7 @@ A decentralized blockchain wallet application built using Solidity, React, and W
 
 ## Table of Contents
 - [Overview]  
-- [Features]  
-- [Project Structure]  
+- [Features]    
 - [Technologies Used]  
 - [Setup and Installation]  
 - [Smart Contract Deployment]  
@@ -32,23 +31,6 @@ The Blockchain Wallet DApp is designed to simulate basic wallet operations like 
 
 ---
 
-## Project Structure  
-blockchain-wallet/ │ ├── contracts/ # Solidity smart contracts
-│ └── Wallet.sol # Wallet contract logic
-│ ├── migrations/ # Truffle migration scripts
-│   └── 2_deploy_wallet.js
-│ ├── wallet-frontend/ # React frontend
-│ ├── src/
-│ │ ├── App.js # Main React component
-│ │ ├── App.css # CSS for frontend
-│ │ └── contracts/ # Contract ABI
-│ │ └── Wallet.json
-│ └── public/ # Static frontend files
-│ ├── test/ # Mocha/Chai contract tests
-│ └── wallet.test.js
-│ ├── truffle-config.js # Truffle configuration
-├── package.json # Project dependencies
-└── README.md # Project documentation
 ## Technologies Used  
 - **Frontend**: React, Web3.js  
 - **Backend**: Solidity (Smart Contracts)  
@@ -60,21 +42,45 @@ blockchain-wallet/ │ ├── contracts/ # Solidity smart contracts
 ## Setup and Installation  
 
 ### Prerequisites  
-- [Node.js](https://nodejs.org/)  
-- [Truffle](https://trufflesuite.com/)  
-- [Ganache](https://www.trufflesuite.com/ganache)  
+- [Node.js](https://nodejs.org/)  v18.x (LTS)
+- [Truffle](https://trufflesuite.com/)   v5.8.0
+- [Ganache](https://www.trufflesuite.com/ganache)  v7.8.0
 - [MetaMask](https://metamask.io/) Extension
-Smart Contract Deployment
+- React  v18.x
+- Web3.js: v1.10.x
+## Setup and Installation
+command for install truffle and their setup:
+npm install -g truffle@5.8.0
+# Create Project Folder
+mkdir blockchain-wallet
+cd blockchain-wallet
+
+# Initialize Truffle Project
+truffle init
+
 1. Start Ganache
 Run Ganache and ensure it listens at http://127.0.0.1:7545 (default RPC).
 
 2. Deploy Contracts
-bash
-Copy code
+   # Start Ganache (GUI)
+# Compile Smart Contract
+truffle compile
+
+# Deploy Contract to Ganache
+truffle migrate
+
 truffle migrate --reset
-Running the Frontend
-bash
-Copy code
+# Create React App
+# Install React 18.x and ReactDOM 18.x
+npm install react@18 react-dom@18
+
+npx create-react-app wallet-frontend
+cd wallet-frontend
+
+# Install Web3.js
+npm install web3@1.10.0
+
+# Running the Frontend
 cd wallet-frontend
 npm start
 The frontend will be available at http://localhost:3000.
@@ -82,8 +88,7 @@ The frontend will be available at http://localhost:3000.
 MetaMask Configuration
 Open MetaMask and go to Settings > Networks > Add Network.
 Enter the following details:
-yaml
-Copy code
+
 Network Name: Ganache  
 RPC URL: http://127.0.0.1:7545  
 Chain ID: 1337 or 5777  
